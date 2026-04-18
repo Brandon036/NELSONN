@@ -67,6 +67,23 @@ Casación penal
 
 
   <style>
+/*script*/
+.cambioDecolor{
+    animation: myAnim 1s ease 0s 1 normal forwards;
+}
+@keyframes myAnim {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.2;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
     /* Estilos del botón */
         .whatsapp-float {
             position: fixed;
@@ -216,5 +233,20 @@ footer{
     }
 }
   </style>
+  <script>
+    const elementos = document.querySelectorAll('.subModulo');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('cambioDecolor');
+    }
+  });
+}, {
+  threshold: 0.4
+});
+
+elementos.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
